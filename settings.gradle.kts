@@ -18,4 +18,3 @@ rootProject.name = "PublishTest"
 include(":app")
 include(":mylibrary")
 include(":mylibrary2")
-apply(from = "publish.gradle.kts")
