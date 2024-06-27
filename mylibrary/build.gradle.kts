@@ -4,15 +4,6 @@ plugins {
     id("maven-publish")
 }
 
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.qq1322798305"
-            afterEvaluate { from(components["release"]) }
-        }
-    }
-}
-
 android {
     namespace = "com.example.mylibrary"
     compileSdk = 34
