@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "PublishTest"
 include(":app")
 include(":mylibrary")
+include(":mylibrary2")
