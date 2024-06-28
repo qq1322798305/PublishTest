@@ -6,7 +6,8 @@ class PublishPlugin : Plugin<Project> {
 
     override fun apply(target: Project) = target.subprojects {
         afterEvaluate action@{
-            if (!plugins.hasPlugin("maven-publish")) {
+            if (projectDir.parentFile != rootDir
+                    || !plugins.hasPlugin("maven-publish")) {
                 return@action
             }
 

@@ -42,4 +42,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.0")
+    val version = "1.2.4"
+    implementation("com.github.xiaocydx.Insets:insets:${version}")
+    implementation("com.github.xiaocydx.Insets:insets-compat:${version}")
+    implementation("com.github.xiaocydx.Insets:insets-systembar:${version}")
 }
