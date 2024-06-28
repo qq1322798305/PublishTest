@@ -4,17 +4,17 @@ apply<PublishPlugin>()
 
 class PublishPlugin : Plugin<Project> {
 
-    override fun apply(target: Project) = target.subprojects {
-        afterEvaluate action@{
+    override fun apply(project: Project) = project.subprojects {
+        afterEvaluate {
             if (projectDir.parentFile != rootDir
                     || !plugins.hasPlugin("maven-publish")) {
-                return@action
+                return@afterEvaluate
             }
 
             publishing {
                 publications {
                     register<MavenPublication>("release") {
-                        groupId = "com.github.qq1322798305"
+                        groupId = GROUP_ID
                         afterEvaluate { from(components["release"]) }
                     }
                 }
@@ -31,11 +31,15 @@ class PublishPlugin : Plugin<Project> {
         }
     }
 
-    private inline fun Project.publishing(block: PublishingExtension.() -> Unit) {
-        extensions.getByType<PublishingExtension>().apply(block)
+    private fun Project.publishing(configure: PublishingExtension.() -> Unit) {
+        extensions.configure("publishing", configure)
     }
 
-    private inline fun Project.android(block: LibraryExtension.() -> Unit) {
-        extensions.getByType<LibraryExtension>().apply(block)
+    private fun Project.android(configure: LibraryExtension.() -> Unit) {
+        extensions.configure("android", configure)
+    }
+
+    private companion object {
+        const val GROUP_ID = "com.github.qq1322798305"
     }
 }
