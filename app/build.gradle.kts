@@ -6,21 +6,20 @@ plugins {
 android {
     namespace = "com.example.publishtest"
     defaultConfig { applicationId = "com.example.publishtest" }
-    kotlinOptions { jvmTarget = "1.8" }
+    kotlinOptions { jvmTarget = Versions.jvmTarget }
 }
 
 dependencies {
     implementation(project(":mylibrary"))
     implementation(project(":mylibrary2"))
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.0")
-    val version = "1.2.4"
-    implementation("com.github.xiaocydx.Insets:insets:${version}")
-    implementation("com.github.xiaocydx.Insets:insets-compat:${version}")
-    implementation("com.github.xiaocydx.Insets:insets-systembar:${version}")
+    implementation(Libs.`androidx-core-ktx`)
+    implementation(Libs.`androidx-appcompat`)
+    implementation(Libs.`androidx-constraintlayout`)
+    implementation(Libs.material)
+    testImplementation(Libs.junit)
+    androidTestImplementation(Libs.`androidx-junit`)
+    androidTestImplementation(Libs.`androidx-espresso-core`)
+    implementation(Libs.insets)
+    implementation(Libs.`insets-compat`)
+    implementation(Libs.`insets-systembar`)
 }
